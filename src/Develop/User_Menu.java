@@ -14,14 +14,22 @@ public class User_Menu extends JFrame {
 	}
 
 	public User_Menu() {
-		
-		Main m = new Main();
-		m.frame();
+		frame();
 		button1();
 		button2();
 		button3();
 		button4();
 		
+	}
+	
+	public void frame() {
+		setTitle("Gaddo");//타이틀
+		setSize(900,600);//프레임의 크기
+		setResizable(false);//창의 크기를 변경하지 못하게
+		setLocationRelativeTo(null);//창이 가운데 나오게
+		getContentPane().setLayout(null);//레이아웃을 내맘대로 설정가능하게 해줌.
+		setVisible(true);//창이 보이게	
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//JFrame이 정상적으로 종료되게
 	}
 	
 	private void button1() {
