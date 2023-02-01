@@ -1,12 +1,11 @@
 package Develop;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
 
 public class Main extends JFrame {
 
@@ -37,6 +36,15 @@ public class Main extends JFrame {
 		user.setBounds(113, 338, 309, 144);
 		getContentPane().add(user);
 		
+		//User_Menu로 넘어가기
+		user.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new User_Menu();
+                setVisible(false); // 창 안보이게 하기 
+            }
+        });
+		
 	}//b_User
 	
 	public void b_Manager() {
@@ -44,5 +52,14 @@ public class Main extends JFrame {
 		manager.setFont(new Font("맑은 고딕", Font.BOLD, 47));
 		manager.setBounds(456, 338, 309, 144);
 		getContentPane().add(manager);
+		
+		//비밀번호 입력창으로 넘어가기
+		manager.addActionListener(new ActionListener() {
+			@Override
+	        public void actionPerformed(ActionEvent e) {
+				new password();
+		        setVisible(false); // 창 안보이게 하기 
+			}
+		});
 	}//b_Manager
 }

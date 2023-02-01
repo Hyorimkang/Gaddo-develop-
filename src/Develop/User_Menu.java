@@ -1,6 +1,8 @@
 package Develop;
 
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -19,8 +21,23 @@ public class User_Menu extends JFrame {
 		button2();
 		button3();
 		button4();
-		
+		back();
 	}
+	
+	void back() {
+		JButton back = new JButton("돌아가기");
+		back.setFont(new Font("맑은 고딕", Font.BOLD, 15));
+		back.setBounds(12, 490, 106, 50);
+		getContentPane().add(back);
+		
+		back.addActionListener(new ActionListener() {
+			@Override
+	        public void actionPerformed(ActionEvent e) {
+				new Main();
+		        setVisible(false); // 창 안보이게 하기 
+			}
+		});
+	}//back
 	
 	public void frame() {
 		setTitle("Gaddo");//타이틀
@@ -59,5 +76,6 @@ public class User_Menu extends JFrame {
 		b4.setFont(new Font("맑은 고딕", Font.PLAIN, 20));
 		b4.setBounds(211, 406, 475, 48);
 		getContentPane().add(b4);
+		
 	}//button4
 }
