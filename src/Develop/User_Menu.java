@@ -4,18 +4,18 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
 public class User_Menu extends JFrame {
 
-
-	
 	public static void main(String[] args) {
 		new User_Menu();
 	}
 
 	public User_Menu() {
+		Image();
 		frame();
 		button1();
 		button2();
@@ -24,10 +24,19 @@ public class User_Menu extends JFrame {
 		back();
 	}
 	
+	void Image() {
+		ImagePanel UserPanel = new ImagePanel(new ImageIcon("E:\\\\java Project dev.ver\\\\Project\\\\Image Source\\\\User_Menu.jpg").getImage());
+		UserPanel.setLocation(0, 0);
+		setPreferredSize(UserPanel.getDim());
+		setSize(UserPanel.getDim());
+		getContentPane().add(UserPanel);
+	}
+	
 	void back() {
-		JButton back = new JButton("돌아가기");
+		JButton back = new JButton();
 		back.setFont(new Font("맑은 고딕", Font.BOLD, 15));
 		back.setBounds(12, 490, 106, 50);
+		back.setIcon(new ImageIcon("E:\\\\java Project dev.ver\\\\Project\\\\Image Source\\\\Backbt.jpg"));
 		getContentPane().add(back);
 		
 		back.addActionListener(new ActionListener() {
@@ -50,32 +59,36 @@ public class User_Menu extends JFrame {
 	}
 	
 	private void button1() {
-		JButton b1 = new JButton("1. 현재 투어 위치는 어디인가요?");
+		JButton b1 = new JButton();
 		b1.setFont(new Font("맑은 고딕", Font.PLAIN, 20));
 		b1.setBounds(211, 218, 475, 48);
 		getContentPane().add(b1);
+		b1.setIcon(new ImageIcon("E:\\\\java Project dev.ver\\\\Project\\\\Image Source\\\\Ub1.jpg"));
 		
 	}//button1
 
 	private void button2() {
-		JButton b2 = new JButton("2. 투어 종료까지 며칠이나 남았나요?");
+		JButton b2 = new JButton();
 		b2.setFont(new Font("맑은 고딕", Font.PLAIN, 20));
 		b2.setBounds(211, 277, 475, 48);
 		getContentPane().add(b2);
+		b2.setIcon(new ImageIcon("E:\\\\java Project dev.ver\\\\Project\\\\Image Source\\\\Ub2.jpg"));
 	}//button2
 
 	private void button3() {
-		JButton b3 = new JButton("3. 지금 현지 시간은 몇시인가요?");
+		JButton b3 = new JButton();
 		b3.setFont(new Font("맑은 고딕", Font.PLAIN, 20));
 		b3.setBounds(211, 340, 475, 48);
 		getContentPane().add(b3);
+		b3.setIcon(new ImageIcon("E:\\\\java Project dev.ver\\\\Project\\\\Image Source\\\\Ub3.jpg"));
 	}//button3
 	
 	private void button4() {
-		JButton b4 = new JButton("4. 전체일정표를 보고싶어요!");
+		JButton b4 = new JButton();
 		b4.setFont(new Font("맑은 고딕", Font.PLAIN, 20));
 		b4.setBounds(211, 406, 475, 48);
 		getContentPane().add(b4);
+		b4.setIcon(new ImageIcon("E:\\\\java Project dev.ver\\\\Project\\\\Image Source\\\\Ub4.jpg"));
 		
 	}//button4
 }
