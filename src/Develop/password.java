@@ -106,7 +106,7 @@ public class password extends JFrame {
 		next.addActionListener(new ActionListener() {
 			@Override
 	        public void actionPerformed(ActionEvent e) {
-				new M_menu();
+				new AllSchedule();
 		        setVisible(false); // 창 안보이게 하기 
 			}
 		});

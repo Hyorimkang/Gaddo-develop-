@@ -32,34 +32,18 @@ public class MakeSchedule extends JFrame {
 		setSize(MakeSchedule.getDim());
 		getContentPane().add(MakeSchedule);
 	
-	
 	}//Image
 	
-	public static void createCustomer(JTextField country, JTextField area, JTextField year, JTextField month, JTextField date) {
-		DBconnect db = new DBconnect();
-		try {
-			Connection con = db.getConnection();
-			PreparedStatement insert = con.prepareStatement(""
-					+ "INSERT INTO customer"
-					+ "(country, area, year, month, date)"
-					+ "VALUE"
-					+ "('"+country+"','"+area+"','"+year+"','"+month+"','"+date+"')");
-			insert.executeUpdate();
-		}catch(Exception e) {
-			System.out.println(e.getMessage());
-		}
-	}//createCustomer
-
+	
 	public MakeSchedule() {
 		setTitle("Make Schedule");//타이틀
-		setSize(900,600);//프레임의 크기
+		setSize(900,600);//프레임의 크기d
 		setResizable(false);//창의 크기를 변경하지 못하게
 		setLocationRelativeTo(null);
 		setVisible(true);//창이 보이게	
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//JFrame이 정상적으로 종료되게
 		getContentPane().setLayout(null);
-		
-		createCustomer(inputcountry, inputarea, inputyear, inputmonth, inputdate);
+	
 		back();
 		Image();
 
@@ -95,24 +79,43 @@ public class MakeSchedule extends JFrame {
 		
 		//추가버튼
 		JButton enter = new JButton();
-		enter.setFont(new Font("굴림", Font.PLAIN, 32));
 		enter.setBounds(347, 464, 181, 51);
 		enter.setIcon(new ImageIcon("E:\\\\java Project dev.ver\\\\Project\\\\Image Source\\\\insertbt.jpg"));
 		getContentPane().add(enter);
-//		if(inputdate != null) {
-//			JOptionPane.showMessageDialog(null, "정보를 추가하시겠습니까?"); 
-//			//관리자 메뉴 창으로 넘어가기
-//			createCustomer(inputcountry, inputarea, inputyear, inputmonth, inputdate);
-//		
-//		}
+		enter.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String country = inputcountry.getText();
+				String area = inputarea.getText();
+				String year = inputyear.getText();
+				String month = inputmonth.getText();
+				String date = inputdate.getText();
+				
+				DBconnect db = new DBconnect();
+				String Table = "sweetmirage";
+				try {
+					Connection con = db.getConnection();
+					PreparedStatement insert = con.prepareStatement(""
+							+ "INSERT INTO " + Table
+							+ "(country, area, year, month, date)"
+							+ "VALUE"
+							+ "('"+country+"','"+area+"','"+year+"','"+month+"','"+date+"')");
+					insert.executeUpdate();
+				}catch(Exception e) {
+					System.out.println(e.getMessage());
+				}
+				JOptionPane.showMessageDialog(null, "새로운 일정을 추가했습니다.");
+			}
+		});
+
 		
 		//콘서트 선택
 		JComboBox comboBox = new JComboBox();
 		comboBox.setBounds(399, 168, 294, 28);
 		getContentPane().add(comboBox);
 		
-		
 	}//Make_schedule
+	
+	
 	
 	void back() {
 		JButton back = new JButton();
@@ -125,7 +128,7 @@ public class MakeSchedule extends JFrame {
 		back.addActionListener(new ActionListener() {
 			@Override
 	        public void actionPerformed(ActionEvent e) {
-				new M_menu();
+				new AllSchedule();
 		        setVisible(false); // 창 안보이게 하기 
 			}
 		});
