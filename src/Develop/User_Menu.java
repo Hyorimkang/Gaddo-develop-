@@ -90,5 +90,12 @@ public class User_Menu extends JFrame {
 		getContentPane().add(b4);
 		b4.setIcon(new ImageIcon("E:\\\\java Project dev.ver\\\\Project\\\\Image Source\\\\Ub4.jpg"));
 		
+		b4.addActionListener(new ActionListener() {
+			@Override
+	        public void actionPerformed(ActionEvent e) {
+				new AllSchedule_User();
+		        setVisible(false); // 창 안보이게 하기 
+			}
+		});
 	}//button4
 }

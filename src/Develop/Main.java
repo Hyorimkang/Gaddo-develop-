@@ -15,9 +15,19 @@ public class Main extends JFrame {
 	}
 
 	public Main() {
+		Image();
 		initialize();
+		button();
 		
 	}//Main
+	
+	private void Image() {
+		ImagePanel MainPanel = new ImagePanel(new ImageIcon("E:\\\\java Project dev.ver\\\\Project\\\\Image Source\\\\Main.jpg").getImage());
+		MainPanel.setLocation(0, 0);
+		setPreferredSize(MainPanel.getDim());
+		setSize(MainPanel.getDim());
+		getContentPane().add(MainPanel);
+	}//Image
 	
 	private void initialize() {
 		setTitle("Gaddo");//타이틀
@@ -28,26 +38,15 @@ public class Main extends JFrame {
 		setVisible(true);//창이 보이게	
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//JFrame이 정상적으로 종료되게
 		
-		
-		ImagePanel MainPanel = new ImagePanel(new ImageIcon("E:\\\\java Project dev.ver\\\\Project\\\\Image Source\\\\Main.jpg").getImage());
-		MainPanel.setLocation(0, 0);
-		setPreferredSize(MainPanel.getDim());
-		setSize(MainPanel.getDim());
-		getContentPane().add(MainPanel);
-		
+	}//initialize
+	
+	private void button() {
 		//사용자 모드 버튼
 		JButton user = new JButton();
 		user.setBounds(133, 418, 254, 118);
-		MainPanel.add(user);
+		getContentPane().add(user);
 		user.setFont(new Font("맑은 고딕", Font.BOLD, 47));
 		user.setIcon(new ImageIcon("E:\\\\java Project dev.ver\\\\Project\\\\Image Source\\\\Main_user.jpg"));
-		
-		//관리자 모드 버튼
-		JButton manager = new JButton();
-		manager.setFont(new Font("맑은 고딕", Font.BOLD, 47));
-		manager.setBounds(503, 418, 254, 118);
-		MainPanel.add(manager);
-		manager.setIcon(new ImageIcon("E:\\\\java Project dev.ver\\\\Project\\\\Image Source\\\\Main_manager.jpg"));
 		
 		//User_Menu로 넘어가기
 		user.addActionListener(new ActionListener() {
@@ -58,6 +57,14 @@ public class Main extends JFrame {
             }
         });
 		
+		//관리자 모드 버튼
+		JButton manager = new JButton();
+		manager.setFont(new Font("맑은 고딕", Font.BOLD, 47));
+		manager.setBounds(503, 418, 254, 118);
+		getContentPane().add(manager);
+		manager.setIcon(new ImageIcon("E:\\\\java Project dev.ver\\\\Project\\\\Image Source\\\\Main_manager.jpg"));
+				
+		
 		//비밀번호 입력 창로 넘어가기
 		manager.addActionListener(new ActionListener() {
 		     @Override
@@ -66,8 +73,7 @@ public class Main extends JFrame {
 		     	setVisible(false); // 창 안보이게 하기 
 		     }
 		});
-		pack();
-	}
+	}//button
 	
 
 }

@@ -58,7 +58,7 @@ public class SearchData extends JFrame {
 		back.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new Main();
+				new AllSchedule();
 		        setVisible(false); // 창 안보이게 하기 
 			}
 		});
